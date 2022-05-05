@@ -11,7 +11,13 @@ app = APIFlask(__name__)
 products = [
     {'id': 0, 'name': 'Corde de securité', 'price': '20.99',
      'desc': 'Une corde qui vous maintient en vie',
-     'img': 'https://images-na.ssl-images-amazon.com/images/G/08/apparel/rcxgs/tile._CB483369919_.gif'},
+     'img': 'https://m.media-amazon.com/images/I/719Fm1FcM8S._AC_SL1397_.jpg'},
+    {'id': 1, 'name': 'Corde', 'price': '99.99',
+     'desc': 'Une corde pour affonter la montagne',
+     'img': 'https://m.media-amazon.com/images/I/91GUcZ+UShL._AC_SL1500_.jpg'},
+    {'id': 2, 'name': 'Mousqueton', 'price': '9.99',
+     'desc': 'Un mousqueton performant pour assurer votre sécurité',
+     'img': 'https://m.media-amazon.com/images/I/71yYFdRGvXL._AC_SL1500_.jpg'},
 ]
 
 class ProductInSchema(Schema):
