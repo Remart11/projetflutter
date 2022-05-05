@@ -6,16 +6,17 @@ import 'dart:convert';
 
 class ListProducts
 {
-  static String baseUrl = "https://jsonplaceholder.typicode.com";
+  static String baseUrl = "http://127.0.0.1:5000/";
 
   static Future<List> getAllProducts() async
   {
     try
     {
-      var res = await http.get(Uri.parse(baseUrl+"/posts"));
+      var res = await http.get(Uri.parse(baseUrl));
       if(res.statusCode == 200)
       {
-        return jsonDecode(res.body);
+        print(res.body[0]);
+        return jsonDecode(res.body)['products'];
       }
       else
       {
@@ -29,7 +30,7 @@ class ListProducts
   }
 }
 
-class ListPage extends StatefulWidget 
+class ListPage extends StatefulWidget
 {
   const ListPage({Key? key}) : super(key: key);
 
@@ -37,19 +38,19 @@ class ListPage extends StatefulWidget
   State<ListPage> createState() => ListPageState();
 }
 
-class ListPageState extends State<ListPage> 
+class ListPageState extends State<ListPage>
 {
   late Future<List> _productsList;
 
   @override
-  void initState() 
+  void initState()
   {
     super.initState();
     _productsList = ListProducts.getAllProducts();
   }
 
   @override
-  Widget build(BuildContext context) 
+  Widget build(BuildContext context)
   {
     return Scaffold
     (
@@ -82,7 +83,7 @@ class ListPageState extends State<ListPage>
                     [
                       InkWell
                       (
-                        onTap: () 
+                        onTap: ()
                         {
                           print("titer");
                         },
@@ -112,7 +113,7 @@ class ListPageState extends State<ListPage>
                             (
                               child: Text
                               (
-                                snapshot.data![i]['title'],
+                                snapshot.data![i]['name'],
                                 textAlign: TextAlign.center,
                                 style: TextStyle
                                 (
@@ -125,10 +126,10 @@ class ListPageState extends State<ListPage>
                           ),
                         ),
                       ),
-                      
+
                       InkWell
                       (
-                        onTap: () 
+                        onTap: ()
                         {
                           print("image");
                         },
@@ -144,14 +145,14 @@ class ListPageState extends State<ListPage>
                           child: SizedBox.fromSize
                           (
                             size: Size(300,320), // Image radius
-                            child: Image.network('https://m.media-amazon.com/images/I/71jo8rm1CpL._AC_UL320_.jpg', fit: BoxFit.cover),
+                            child: Image.network(snapshot.data![i]['img'], fit: BoxFit.cover),
                           ),
                         ),
                       ),
 
                       InkWell
                       (
-                        onTap: () 
+                        onTap: ()
                         {
                           print("prix");
                         },
@@ -166,7 +167,7 @@ class ListPageState extends State<ListPage>
                             (
                               child: Text
                               (
-                                '14,99€',
+                                snapshot.data![i]['price'],
                                 style: TextStyle
                                 (
                                   fontSize: 20,
@@ -190,8 +191,8 @@ class ListPageState extends State<ListPage>
                         ),
                       )
 
-                      
-                      
+
+
                     ],
                   );
                 }
