@@ -15,4 +15,4 @@ Pour lancer le serveur:
 
 Pour voir la documentation merci de vous rendre à:
 
-    http://localhost:5000/openapi.json
+    http://localhost:5000/docs
