@@ -36,6 +36,12 @@ class ProductOutSchema(Schema):
 class ProductsOutSchema(Schema):
     products = List(Nested(ProductOutSchema))
 
+
+@app.get('/connect')
+def connect():
+    # returning a dict equals to use jsonify()
+    return {'message': 'connected'}
+
 @app.get('/')
 def get_products():
     return {

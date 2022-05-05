@@ -13,3 +13,6 @@ Pour lancer le serveur:
 
     flask run --reload
 
+Pour voir la documentation merci de vous rendre à:
+
+    http://localhost:5000/openapi.json
