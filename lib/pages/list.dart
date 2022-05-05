@@ -22,14 +22,14 @@ class ListProducts{
   }
 }
 
-class Affichage extends StatefulWidget {
-  const Affichage({Key? key}) : super(key: key);
+class ListPage extends StatefulWidget {
+  const ListPage({Key? key}) : super(key: key);
 
   @override
-  State<Affichage> createState() => _StateAffichage();
+  State<ListPage> createState() => ListPageState();
 }
 
-class _StateAffichage extends State<Affichage> {
+class ListPageState extends State<ListPage> {
   late Future<List> _productsList;
 
   @override

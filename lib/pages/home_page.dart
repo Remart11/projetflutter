@@ -66,7 +66,10 @@ class HomePageState extends State<HomePage>
              height: 50,
              margin: EdgeInsets.all(10),
              child: RaisedButton(
-               onPressed: () {},
+               onPressed: () 
+               {
+                 Navigator.pushNamed(context, '/list');
+               },
                shape: RoundedRectangleBorder(
                    borderRadius: BorderRadius.circular(80.0)),
                padding: EdgeInsets.all(0.0),

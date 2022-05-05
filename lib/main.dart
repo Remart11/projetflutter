@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import './list.dart';
+import 'pages/list.dart';
 import 'package:projetfutter/pages/home_page.dart';
 
 void main() 
@@ -24,7 +24,8 @@ class MyApp extends StatelessWidget
       ),
       routes: 
       {
-        "/":(context) => const HomePage()
+        "/":(context) => const HomePage(),
+        "/list": (context) => const ListPage(),
       },
     );
   }
