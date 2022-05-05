@@ -12,10 +12,12 @@ class ListProducts
   {
     try
     {
+      print('couc1');
       var res = await http.get(Uri.parse(baseUrl));
+      print('dwgfg');
       if(res.statusCode == 200)
       {
-        print(res.body[0]);
+        print('couc2');
         return jsonDecode(res.body)['products'];
       }
       else
@@ -25,6 +27,7 @@ class ListProducts
     }
     catch(err)
     {
+      print(err);
       return Future.error(err);
     }
   }
