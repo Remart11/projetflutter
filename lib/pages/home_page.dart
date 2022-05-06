@@ -12,7 +12,7 @@ class HomePage extends StatefulWidget
 class HomePageState extends State<HomePage>
 {
   @override
-  Widget build(BuildContext context) 
+  Widget build(BuildContext context)
   {
     return Scaffold
     (
@@ -21,11 +21,22 @@ class HomePageState extends State<HomePage>
         title: const Text('La cordée de rêve'),
         centerTitle: true,
         backgroundColor: Color(0xFFd66a12),
+        actions: [
+          IconButton(
+              icon: Icon(
+                  Icons.login,
+                  color: Color(0XFF0000FF),
+                  size: 34.0),
+              onPressed: (){
+                 Navigator.pushNamed(context, '/login');
+              }
+          )
+        ]
       ),
 
       body: Column
       (
-        children: 
+        children:
         [
           Container
           (
@@ -57,15 +68,15 @@ class HomePageState extends State<HomePage>
                                   fontWeight: FontWeight.w500,
                                   height: 2,
                                   fontSize: 25)),
-                                  
-              
+
+
           ),
 
           Container(
              height: 50,
              margin: EdgeInsets.all(10),
              child: RaisedButton(
-               onPressed: () 
+               onPressed: ()
                {
                  Navigator.pushNamed(context, '/list');
                },
@@ -93,8 +104,8 @@ class HomePageState extends State<HomePage>
                ),
              ),
            ),
-         
-          
+
+
         ],
       ),
 
