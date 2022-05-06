@@ -1,37 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
-
-class ListProducts
-{
-  static String baseUrl = "http://127.0.0.1:5000/";
-
-  static Future<List> getAllProducts() async
-  {
-    try
-    {
-      print('couc1');
-      var res = await http.get(Uri.parse(baseUrl));
-      print('dwgfg');
-      if(res.statusCode == 200)
-      {
-        print('couc2');
-        return jsonDecode(res.body)['products'];
-      }
-      else
-      {
-        return Future.error("erreur serveur");
-      }
-    }
-    catch(err)
-    {
-      print(err);
-      return Future.error(err);
-    }
-  }
-}
+import 'package:projetfutter/product.dart';
 
 class ListPage extends StatefulWidget
 {
@@ -49,7 +19,7 @@ class ListPageState extends State<ListPage>
   void initState()
   {
     super.initState();
-    _productsList = ListProducts.getAllProducts();
+    _productsList = Product.getAllProducts();
   }
 
   @override
@@ -88,7 +58,7 @@ class ListPageState extends State<ListPage>
                       (
                         onTap: ()
                         {
-                          print("titer");
+                          Product.getProductById(context, snapshot.data![i]['id']);
                         },
                         child: Container
                         (
@@ -134,7 +104,7 @@ class ListPageState extends State<ListPage>
                       (
                         onTap: ()
                         {
-                          print("image");
+                          Product.getProductById(context, snapshot.data![i]['id']);
                         },
                         child: ClipRRect
                         (
@@ -157,7 +127,7 @@ class ListPageState extends State<ListPage>
                       (
                         onTap: ()
                         {
-                          print("prix");
+                          Product.getProductById(context, snapshot.data![i]['id']);
                         },
                         child: FractionalTranslation
                         (

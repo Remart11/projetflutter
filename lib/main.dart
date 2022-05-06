@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:projetfutter/pages/detail_page.dart';
 import 'pages/list.dart';
 import 'pages/login.dart';
 import 'package:projetfutter/pages/home_page.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget
         "/":(context) => const HomePage(),
         "/list": (context) => const ListPage(),
         "/login": (context) => const LoginPage(),
+        "/detail": (context) => const DetailPage(),
       },
     );
   }
