@@ -3,10 +3,12 @@ from apiflask.validators import Length, OneOf
 from apiflask import Schema, PaginationSchema
 from apiflask.fields import Integer, String, List, Nested
 from apiflask.validators import Range
+from flask_cors import CORS
 
 
 
 app = APIFlask(__name__)
+CORS(app)
 
 products = [
     {'id': 0, 'name': 'Corde de securité', 'price': '20.99',
